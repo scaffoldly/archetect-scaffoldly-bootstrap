@@ -1,0 +1,26 @@
+---
+script:
+#   - if:
+#       conditions:
+#         - switch-enabled: overwrite
+#       then:
+#         - if:
+#             conditions:
+#               - any-of:
+#                 - path-exists: "etc/answers.yml"
+#                 - path-exists: "etc/catalog.yml"
+#             then:
+#               - warn: "Overwriting Configuration!"
+#         - rules:
+#             - destination:
+#                 overwrite: true
+  - set:
+      nonlive_domain:
+        prompt: "Nonlive Domain?"
+      live_domain:
+        prompt: "Live Domain?"
+
+
+  - render:
+      directory:
+        source: ".archetect/terraform"
