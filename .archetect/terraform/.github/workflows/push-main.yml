@@ -8,15 +8,15 @@ env:
   AWS_SECRET_ACCESS_KEY: {{ "${{ secrets.BOOTSTRAP_AWS_SECRET_ACCESS_KEY }}" }}
   TF_VAR_ROOT_EMAIL: {{ "${{ secrets.BOOTSTRAP_ROOT_EMAIL }}" }}
   TF_VAR_BOOTSTRAP_GITHUB_TOKEN: {{ "${{ secrets.BOOTSTRAP_GITHUB_TOKEN }}" }}
+  TF_VAR_BOOTSTRAP_AWS_ACCOUNT_ID: {{ "${{ secrets.BOOTSTRAP_AWS_ACCOUNT_ID }}" }}
 jobs:
   plan:
     runs-on: ubuntu-latest
-    if: "!startsWith(github.event.head_commit.message, 'Initial commit')"
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.15.0
+          terraform_version: 1.0.4
       - uses: scaffoldly/bootstrap-action@v1
         with:
           action: plan

@@ -1,0 +1,10 @@
+---
+script:
+  - set:
+      nonlive_domain:
+        default: scaffoldly.dev
+      live_domain:
+        default: scaffoldly.live
+  - render:
+      directory:
+        source: "terraform"
