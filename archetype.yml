@@ -7,4 +7,4 @@ script:
         default: scaffoldly.live
   - render:
       directory:
-        source: "terraform"
+        source: "contents"
