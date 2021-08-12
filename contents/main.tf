@@ -11,7 +11,7 @@ terraform {
 
 module "bootstrap_aws" {
   source  = "scaffoldly/bootstrap/aws"
-  version = "1.0.1"
+  version = "1.0.2"
 
   root_email   = var.ROOT_EMAIL
   account_id   = var.BOOTSTRAP_AWS_ACCOUNT_ID
