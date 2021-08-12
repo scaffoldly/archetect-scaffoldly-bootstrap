@@ -1,5 +1,13 @@
 ---
 script:
+  - if:
+      conditions:
+        - switch-enabled: overwrite
+      then:
+        - rules:
+            - destination:
+                overwrite: true
+
   - set:
       nonlive_domain:
         default: scaffoldly.dev
