@@ -8,7 +8,7 @@ variable "BOOTSTRAP_AWS_ACCOUNT_ID" {
 
 module "bootstrap_aws" {
   source  = "scaffoldly/bootstrap/aws"
-  version = "1.0.2"
+  version = "1.0.3"
 
   root_email   = var.ROOT_EMAIL
   account_id   = var.BOOTSTRAP_AWS_ACCOUNT_ID
