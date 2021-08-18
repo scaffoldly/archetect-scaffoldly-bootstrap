@@ -10,9 +10,10 @@ script:
 
   - set:
       nonlive_domain:
-        default: scaffoldly.dev
+        prompt: "Nonlive Domain"
       live_domain:
-        default: scaffoldly.live
+        prompt: "Live Domain"
+
   - render:
       directory:
         source: "contents"
