@@ -25,7 +25,7 @@ module "bootstrap_aws" {
 }
 
 provider "aws" {
-  region = module.boostrap_aws.region
+  region = module.bootstrap_aws.region
 
   assume_role {
     role_arn = module.bootstrap_aws.role
