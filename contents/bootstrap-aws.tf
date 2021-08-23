@@ -8,7 +8,7 @@ variable "BOOTSTRAP_AWS_ACCOUNT_ID" {
 
 module "bootstrap_aws" {
   source  = "scaffoldly/bootstrap/aws"
-  version = "1.0.3"
+  version = "1.0.4"
 
   root_email   = var.ROOT_EMAIL
   account_id   = var.BOOTSTRAP_AWS_ACCOUNT_ID
@@ -25,7 +25,7 @@ module "bootstrap_aws" {
 }
 
 provider "aws" {
-  region = module.boostrap_aws.region
+  region = module.bootstrap_aws.region
 
   assume_role {
     role_arn = module.bootstrap_aws.role
