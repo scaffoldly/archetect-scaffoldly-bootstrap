@@ -1,13 +1,5 @@
 ---
 script:
-  - if:
-      conditions:
-        - switch-enabled: overwrite
-      then:
-        - rules:
-            - destination:
-                overwrite: true
-
   - set:
       nonlive_domain:
         prompt: "Nonlive Domain"
@@ -16,4 +8,15 @@ script:
 
   - render:
       directory:
-        source: "contents"
+        source: "immutable"
+
+  - if:
+      conditions:
+        - switch-enabled: overwrite
+      then:
+        - rules:
+            - destination:
+                overwrite: true
+        - render:
+            directory:
+              source: "base"
