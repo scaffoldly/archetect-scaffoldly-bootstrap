@@ -1,10 +1,13 @@
 ---
 script:
+
   - set:
-      nonlive_domain:
-        prompt: "Nonlive Domain"
-      live_domain:
-        prompt: "Live Domain"
+      aws:
+        type: bool
+        default: false
+      serverless_api_repos:
+        type: list
+        default: []
 
   - render:
       directory:
@@ -14,9 +17,31 @@ script:
       conditions:
         - switch-enabled: overwrite
       then:
+        - set:
+            nonlive_domain:
+              prompt: "Nonlive Domain"
+            live_domain:
+              prompt: "Live Domain"
         - rules:
             - destination:
                 overwrite: true
         - render:
             directory:
               source: "base"
+
+  - if:
+      is-true: "{{ aws }}"
+      then:
+        - for:
+            item:
+              in: aws_serverless_api_repos
+            do:
+              - info: "Rendering AWS Serverless API {{ item }}"
+              - set:
+                  repo: "{{ item | lower }}"
+                  service_name: "{{ repo | snake_case }}"
+                  service-name: "{{ repo | train_case }}"
+                  path: "{{ repo | trim_end_matches(pat='-sls-rest-api') }}"
+              - render:
+                  directory:
+                    source: "aws/serverless-api"
