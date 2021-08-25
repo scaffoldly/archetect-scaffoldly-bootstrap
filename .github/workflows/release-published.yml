@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.4
+      - uses: scaffoldly/archetect-render-action@v1
+        with:
+          source: "."
+          destination: "${{ runner.temp }}/rendered"
+          options: "-s overwrite -a nonlive_domain=example.dev -a live_domain=example.com"
+          commit: "false"
+      - run: |
+          terraform init
+          terraform fmt -check
+          terraform validate -check
+        working-directory: "${{ runner.temp }}/rendered"
+      - uses: scaffoldly/bump-version-action@v1
+        with:
+          action: postrelease
+          version-file: sly.json
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
