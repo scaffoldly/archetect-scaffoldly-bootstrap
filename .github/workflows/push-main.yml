@@ -19,11 +19,11 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.0.4
-      - uses: scaffoldly/archetect-render-action@1.0.5
+      - uses: scaffoldly/archetect-render-action@1.0.4
         with:
           source: "."
           destination: "${{ runner.temp }}/rendered"
-          options: ${{ matrix.archetect-options }}
+          options: "-s overwrite ${{ matrix.archetect-options }}"
           commit: "false"
       - run: |
           terraform init -backend=false
