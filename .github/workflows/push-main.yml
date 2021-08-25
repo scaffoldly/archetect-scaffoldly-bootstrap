@@ -5,6 +5,11 @@ on:
   push:
     branches: [main]
 
+env:
+  TF_VAR_ROOT_EMAIL: ci+archetype-scaffoldly-bootstrap@scaffold.ly
+  TF_VAR_BOOTSTRAP_ORGANIZATION: archetype-scaffoldly-bootstrap
+  TF_VAR_BOOTSTRAP_AWS_ACCOUNT_ID: 000000000000
+
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -25,14 +30,11 @@ jobs:
           destination: "${{ runner.temp }}/rendered"
           options: "-s overwrite ${{ matrix.archetect-options }}"
           commit: "false"
-      - run: |
-          terraform init -backend=false
-          terraform fmt -check
-          terraform validate
-        env:
-          TF_VAR_ROOT_EMAIL: ci+archetype-scaffoldly-bootstrap@scaffold.ly
-          TF_VAR_BOOTSTRAP_ORGANIZATION: archetype-scaffoldly-bootstrap
-          TF_VAR_BOOTSTRAP_AWS_ACCOUNT_ID: 000000000000
+      - run: terraform init -backend=false
+        working-directory: "${{ runner.temp }}/rendered"
+      - run: terraform fmt -check
+        working-directory: "${{ runner.temp }}/rendered"
+      - run: terraform validate
         working-directory: "${{ runner.temp }}/rendered"
   prerelease:
     needs: render
