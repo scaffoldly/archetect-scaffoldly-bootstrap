@@ -12,8 +12,8 @@ jobs:
       fail-fast: true
       matrix:
         archetect-options:
-          - "-a nonlive_domain=example.dev -a live_domain=example.com"
-          - "-a nonlive_domain=example.dev -a live_domain=example.com -a aws=true -a serverless_api_repos=example-sls-rest-api"
+          - "-s aws -a nonlive_domain=example.dev -a live_domain=example.com"
+          - "-s aws -a nonlive_domain=example.dev -a live_domain=example.com -a serverless_api_repos=example-sls-rest-api"
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1

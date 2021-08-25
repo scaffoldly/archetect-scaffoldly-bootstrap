@@ -2,9 +2,6 @@
 script:
 
   - set:
-      aws:
-        default: "false"
-        type: bool
       serverless_api_repos:
         default: ""
         type: list
@@ -16,6 +13,7 @@ script:
   - if:
       conditions:
         - switch-enabled: overwrite
+        - switch-enabled: aws
       then:
         - set:
             nonlive_domain:
@@ -27,13 +25,13 @@ script:
                 overwrite: true
         - render:
             directory:
-              source: "base"
+              source: "aws/base"
 
   - if:
       all-of: 
-        - is-true: "{{ aws }}"
         - is-true: "{{ serverless_api_repos | length != 0 }}"
         - switch-enabled: overwrite
+        - switch-enabled: aws
       then:
         - for:
             item:
@@ -41,8 +39,10 @@ script:
             do:
               - info: "Rendering AWS Serverless API: {{ item }}"
               - set:
+                  repository-name: 
+                    value: "{{ item }}"
                   repo: 
-                    value: "{{ item | lower }}"
+                    value: "{{ repository-name | lower }}"
                   service_name: 
                     value: "{{ repo | snake_case }}"
                   service-name: 
