@@ -3,11 +3,11 @@ script:
 
   - set:
       aws:
-        type: bool
         default: "false"
+        type: bool
       serverless_api_repos:
-        type: list
         default: ""
+        type: list
 
   - render:
       directory:
