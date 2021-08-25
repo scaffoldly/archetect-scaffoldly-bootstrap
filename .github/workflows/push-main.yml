@@ -12,7 +12,7 @@ jobs:
       fail-fast: true
       matrix:
         archetect-options:
-          - "-s aws -a nonlive_domain=example.dev -a live_domain=example.com"
+          #- "-s aws -a nonlive_domain=example.dev -a live_domain=example.com"
           - "-s aws -s serverless-api -a nonlive_domain=example.dev -a live_domain=example.com -a serverless_api_repos=example-sls-rest-api"
     steps:
       - uses: actions/checkout@v2

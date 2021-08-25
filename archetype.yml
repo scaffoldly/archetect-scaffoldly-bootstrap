@@ -38,7 +38,7 @@ script:
               in: serverless_api_repos
               name: repository-name
             do:
-              - info: "Rendering AWS Serverless API: {{ item }}"
+              - info: "Rendering AWS Serverless API for repository: {{ repository-name }}"
               - set:
                   repo: 
                     value: "{{ repository-name | lower }}"
