@@ -20,9 +20,13 @@ jobs:
           options: "-s overwrite -a nonlive_domain=example.dev -a live_domain=example.com"
           commit: "false"
       - run: |
-          terraform init
+          terraform init -backend=false
           terraform fmt -check
-          terraform validate -check
+          terraform validate
+        env:
+          TF_VAR_ROOT_EMAIL: ci+archetype-scaffoldly-bootstrap@scaffold.ly
+          TF_VAR_BOOTSTRAP_ORGANIZATION: archetype-scaffoldly-bootstrap
+          TF_VAR_BOOTSTRAP_AWS_ACCOUNT_ID: 000000000000
         working-directory: "${{ runner.temp }}/rendered"
       - uses: scaffoldly/bump-version-action@v1
         with:
