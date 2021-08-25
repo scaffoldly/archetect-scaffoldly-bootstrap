@@ -30,7 +30,9 @@ script:
               source: "base"
 
   - if:
-      is-true: "{{ aws }}"
+      all-of: 
+        - is-true: "{{ aws }}"
+        - is-true: "{{ aws_serverless_api_repos | length != 0 }}"
       then:
         - for:
             item:
