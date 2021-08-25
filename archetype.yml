@@ -32,11 +32,12 @@ script:
   - if:
       all-of: 
         - is-true: "{{ aws }}"
-        - is-true: "{{ aws_serverless_api_repos | length != 0 }}"
+        - is-true: "{{ serverless_api_repos | length != 0 }}"
+        - switch-enabled: overwrite
       then:
         - for:
             item:
-              in: aws_serverless_api_repos
+              in: serverless_api_repos
             do:
               - info: "Rendering AWS Serverless API: {{ item }}"
               - set:
