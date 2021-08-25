@@ -38,10 +38,14 @@ script:
             do:
               - info: "Rendering AWS Serverless API: {{ item }}"
               - set:
-                  repo: "{{ item | lower }}"
-                  service_name: "{{ repo | snake_case }}"
-                  service-name: "{{ repo | train_case }}"
-                  path: "{{ repo | trim_end_matches(pat='-sls-rest-api') }}"
+                  repo: 
+                    value: "{{ item | lower }}"
+                  service_name: 
+                    value: "{{ repo | snake_case }}"
+                  service-name: 
+                    value: "{{ repo | train_case }}"
+                  path: 
+                    value: "{{ repo | trim_end_matches(pat='-sls-rest-api') }}"
               - render:
                   directory:
                     source: "aws/serverless-api"
