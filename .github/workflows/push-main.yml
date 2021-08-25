@@ -19,7 +19,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.0.4
-      - uses: scaffoldly/archetect-render-action@v1
+      - uses: scaffoldly/archetect-render-action@1.0.5
         with:
           source: "."
           destination: "${{ runner.temp }}/rendered"
