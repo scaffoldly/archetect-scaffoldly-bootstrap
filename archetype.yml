@@ -4,10 +4,10 @@ script:
   - set:
       aws:
         type: bool
-        default: false
+        default: "false"
       serverless_api_repos:
         type: list
-        default: []
+        default: ""
 
   - render:
       directory:
@@ -36,7 +36,7 @@ script:
             item:
               in: aws_serverless_api_repos
             do:
-              - info: "Rendering AWS Serverless API {{ item }}"
+              - info: "Rendering AWS Serverless API: {{ item }}"
               - set:
                   repo: "{{ item | lower }}"
                   service_name: "{{ repo | snake_case }}"
