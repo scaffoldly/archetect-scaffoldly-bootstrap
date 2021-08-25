@@ -29,18 +29,17 @@ script:
 
   - if:
       all-of: 
-        - is-true: "{{ serverless_api_repos | length != 0 }}"
         - switch-enabled: overwrite
         - switch-enabled: aws
+        - switch-enabled: serverless-api
       then:
         - for:
             item:
               in: serverless_api_repos
+              name: repository-name
             do:
               - info: "Rendering AWS Serverless API: {{ item }}"
               - set:
-                  repository-name: 
-                    value: "{{ item }}"
                   repo: 
                     value: "{{ repository-name | lower }}"
                   service_name: 
