@@ -13,3 +13,12 @@ module "aws_serverless_api_{{ service_name }}" {
     module.bootstrap_aws
   ]
 }
+
+output "{{ repository-name }}_stage_config_aws" {
+  value = module.aws_serverless_api_{{ service_name }}.stage_config
+}
+
+output "{{ repository-name }}_deployer_credentials_aws" {
+  value = module.aws_serverless_api_{{ service_name }}.deployer_credentials
+  sensitive = true
+}
