@@ -8,6 +8,7 @@ script:
   - if:
       conditions:
         - switch-enabled: overwrite
+        - switch-enabled: base
       then:
         - rules:
             - destination:
@@ -19,7 +20,9 @@ script:
   - if:
       conditions:
         - switch-enabled: overwrite
+        - switch-enabled: base
         - switch-enabled: aws
+        - switch-enabled: aws-base
       then:
         - set:
             nonlive_domain:
