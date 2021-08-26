@@ -19,6 +19,6 @@ output "{{ repository-name }}_stage_config_aws" {
 }
 
 output "{{ repository-name }}_deployer_credentials_aws" {
-  value = module.aws_serverless_api_{{ service_name }}.deployer_credentials
+  value     = module.aws_serverless_api_{{ service_name }}.deployer_credentials
   sensitive = true
 }
