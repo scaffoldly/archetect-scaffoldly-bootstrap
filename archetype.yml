@@ -1,11 +1,6 @@
 ---
 script:
 
-  - set:
-      serverless_api_repos:
-        default: ""
-        type: list
-
   - render:
       directory:
         source: "immutable"
@@ -37,6 +32,14 @@ script:
         - render:
             directory:
               source: "aws/base"
+
+  - if:
+      conditions:
+        - switch-enabled: serverless-api
+      then:
+          - set:
+              serverless_api_repos:
+                type: list
 
   - if:
       all-of: 
