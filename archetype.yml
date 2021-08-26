@@ -25,9 +25,9 @@ script:
         - switch-enabled: aws-base
       then:
         - set:
-            nonlive_domain:
+            nonlive-domain:
               prompt: "Nonlive Domain"
-            live_domain:
+            live-domain:
               prompt: "Live Domain"
         - rules:
             - destination:
@@ -41,7 +41,7 @@ script:
         - switch-enabled: serverless-api
       then:
           - set:
-              serverless_api_repos:
+              serverless-api-repos:
                 type: list
 
   - if:
@@ -52,7 +52,7 @@ script:
       then:
         - for:
             item:
-              in: serverless_api_repos
+              in: serverless-api-repos
               name: repository-name
             do:
               - info: "Rendering AWS Serverless API for repository: {{ repository-name }}"

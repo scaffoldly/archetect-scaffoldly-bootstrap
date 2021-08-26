@@ -16,10 +16,10 @@ module "bootstrap_aws" {
 
   stages = {
     nonlive = {
-      domain = "{{ nonlive_domain }}"
+      domain = "{{ nonlive-domain }}"
     }
     live = {
-      domain = "{{ live_domain }}"
+      domain = "{{ live-domain }}"
     }
   }
 }

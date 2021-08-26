@@ -18,8 +18,8 @@ jobs:
       matrix:
         archetect-options:
           - "-s base"
-          - "-s base -s aws -s aws-base -a nonlive_domain=example.dev -a live_domain=example.com"
-          - "-s base -s aws -s aws-base -s serverless-api -a nonlive_domain=example.dev -a live_domain=example.com -a serverless_api_repos=example-sls-rest-api"
+          - "-s base -s aws -s aws-base -a nonlive-domain=example.dev -a live-domain=example.com"
+          - "-s base -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a live-domain=example.com -a serverless-api-repos=example-sls-rest-api"
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v1
