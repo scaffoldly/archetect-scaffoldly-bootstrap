@@ -20,6 +20,18 @@ script:
   - if:
       conditions:
         - switch-enabled: overwrite
+        - switch-enabled: github
+      then:
+        - rules:
+            - destination:
+                overwrite: true
+        - render:
+            directory:
+              source: "github"
+
+  - if:
+      conditions:
+        - switch-enabled: overwrite
         - switch-enabled: base
         - switch-enabled: aws
         - switch-enabled: aws-base
