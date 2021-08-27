@@ -5,6 +5,6 @@ variable "BOOTSTRAP_GITHUB_TOKEN" {
 }
 
 provider "github" {
-  owner = var.BOOTSTRAP_ORGANIZATION
   token = var.BOOTSTRAP_GITHUB_TOKEN
+  owner = var.BOOTSTRAP_ORGANIZATION
 }
