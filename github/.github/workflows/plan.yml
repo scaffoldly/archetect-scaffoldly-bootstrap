@@ -1,3 +1,5 @@
+{{ hash-banner }}
+
 name: Terraform Plan
 on:
   workflow_dispatch:

@@ -1,3 +1,5 @@
+{{ hash-banner }}
+
 name: Terraform Apply
 on:
   release:
