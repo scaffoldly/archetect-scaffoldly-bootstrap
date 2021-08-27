@@ -5,6 +5,6 @@ variable "BOOTSTRAP_GITHUB_TOKEN" {
 }
 
 provider "github" {
+  # GITHUB_OWNER is set by scaffoldly/bootstrap-action
   token = var.BOOTSTRAP_GITHUB_TOKEN
-  owner = var.BOOTSTRAP_ORGANIZATION
 }

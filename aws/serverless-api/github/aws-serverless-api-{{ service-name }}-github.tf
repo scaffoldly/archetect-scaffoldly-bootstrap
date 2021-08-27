@@ -2,12 +2,11 @@
 
 module "github_stage_secrets_{{ service_name }}" {
   source  = "scaffoldly/stage-secrets/github"
-  version = "1.0.1"
+  version = "1.0.0"
 
   for_each = module.aws_serverless_api_{{ service_name }}.stage_config
 
   stage           = each.key
-  organization    = var.BOOTSTRAP_ORGANIZATION
   repository_name = "{{ repository-name }}"
 
   secrets = {
