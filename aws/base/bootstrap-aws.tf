@@ -30,3 +30,7 @@ provider "aws" {
     role_arn = module.bootstrap_aws.role
   }
 }
+
+output "bootstrap_aws_api_gateway_stages" {
+  value = module.bootstrap_aws.api_gateway_stages
+}
