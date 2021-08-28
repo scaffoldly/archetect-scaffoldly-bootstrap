@@ -5,7 +5,7 @@ data "aws_caller_identity" "current" {}
 
 module "aws_serverless_api_{{ service_name }}" {
   source  = "scaffoldly/serverless-api/aws"
-  version = "1.0.4"
+  version = "1.0.5"
 
   repository_name    = "{{ repository-name }}"
   api_gateway_stages = module.bootstrap_aws.api_gateway_stages
