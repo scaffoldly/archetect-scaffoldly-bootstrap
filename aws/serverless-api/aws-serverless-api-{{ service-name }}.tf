@@ -1,8 +1,5 @@
 {{ hash-banner }}
 
-data "aws_partition" "current" {}
-data "aws_caller_identity" "current" {}
-
 module "aws_serverless_api_{{ service_name }}" {
   source  = "scaffoldly/serverless-api/aws"
   version = "1.0.5"
