@@ -105,10 +105,10 @@ script:
                           source: "aws/serverless-api/github"
 
   - if:
-    conditions:
-      - switch-enabled: overwrite
-      - switch-enabled: addon-aws-ses
-    then:
-      - render:
-          directory:
-            source: "addons/aws/ses"
+      conditions:
+        - switch-enabled: overwrite
+        - switch-enabled: addon-aws-ses
+      then:
+        - render:
+            directory:
+              source: "addons/aws/ses"
