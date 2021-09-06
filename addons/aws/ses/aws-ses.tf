@@ -1,0 +1,14 @@
+module "aws_ses" {
+  source  = "scaffoldly/email/aws"
+  version = "1.0.1"
+
+  root_email = var.ROOT_EMAIL
+  account_id = var.BOOTSTRAP_AWS_ACCOUNT_ID
+
+  subdomain = "slyses"
+  stages    = module.bootstrap_aws.stages
+
+  depends_on = [
+    module.bootstrap_aws
+  ]
+}
