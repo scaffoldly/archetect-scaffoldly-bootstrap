@@ -1,6 +1,6 @@
 module "aws_ses" {
   source  = "scaffoldly/email/aws"
-  version = "1.0.2"
+  version = "1.0.3"
 
   root_email = var.ROOT_EMAIL
   account_id = var.BOOTSTRAP_AWS_ACCOUNT_ID
