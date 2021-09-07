@@ -25,7 +25,7 @@ module "bootstrap_aws" {
 
 provider "aws" {
   region = "us-east-1"
-  alias = "root"
+  alias  = "root"
 }
 
 provider "aws" {
