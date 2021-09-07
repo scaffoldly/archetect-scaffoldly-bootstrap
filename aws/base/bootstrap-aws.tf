@@ -24,6 +24,10 @@ module "bootstrap_aws" {
 }
 
 provider "aws" {
+  alias = "root"
+}
+
+provider "aws" {
   region = module.bootstrap_aws.region
 
   assume_role {
