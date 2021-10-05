@@ -41,7 +41,7 @@ jobs:
         working-directory: "${{ runner.temp }}/rendered"
       - run: terraform validate
         working-directory: "${{ runner.temp }}/rendered"
-      - run: cat bootstrap-aws.tf
+      - run: ls -al
         working-directory: "${{ runner.temp }}/rendered"
   prerelease:
     needs: render
