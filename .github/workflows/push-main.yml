@@ -43,6 +43,8 @@ jobs:
         working-directory: "${{ runner.temp }}/rendered"
       - run: ls -al
         working-directory: "${{ runner.temp }}/rendered"
+      - run: cat bootstrap-aws.tf
+        working-directory: "${{ runner.temp }}/rendered"
   prerelease:
     needs: render
     runs-on: ubuntu-latest
