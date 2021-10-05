@@ -18,8 +18,10 @@ jobs:
       matrix:
         archetect-options:
           - "-s base -s github"
+          - "-s base -s github -s aws -s aws-base -a nonlive-domain=example.dev"
           - "-s base -s github -s aws -s aws-base -a nonlive-domain=example.dev -a live-domain=example.com"
           - "-s base -s github -s aws -s aws-base -s addon-aws-ses -a nonlive-domain=example.dev -a live-domain=example.com"
+          - "-s base -s github -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a serverless-api-repos=example-sls-rest-api"
           - "-s base -s github -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a live-domain=example.com -a serverless-api-repos=example-sls-rest-api"
           # todo layering test
     steps:
@@ -38,6 +40,8 @@ jobs:
       - run: terraform fmt -check
         working-directory: "${{ runner.temp }}/rendered"
       - run: terraform validate
+        working-directory: "${{ runner.temp }}/rendered"
+      - run: cat bootstrap-aws.tf
         working-directory: "${{ runner.temp }}/rendered"
   prerelease:
     needs: render

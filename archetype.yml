@@ -50,6 +50,7 @@ script:
               prompt: "Nonlive Domain"
             live-domain:
               prompt: "Live Domain"
+              default: ""
         - rules:
             - destination:
                 overwrite: true
