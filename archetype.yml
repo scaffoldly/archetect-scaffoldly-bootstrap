@@ -113,3 +113,8 @@ script:
         - render:
             directory:
               source: "addons/aws/ses"
+
+  - exec:
+      command: terraform
+      args:
+        - "fmt"
