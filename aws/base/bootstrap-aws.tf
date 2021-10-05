@@ -17,8 +17,7 @@ module "bootstrap_aws" {
     nonlive = {
       domain = "{{ nonlive-domain }}"
     }
-    {% if live-domain != "" %}
-    live = {
+    {% if live-domain != "" %}live = {
       domain = "{{ live-domain }}"
     }{% endif %}
   }
