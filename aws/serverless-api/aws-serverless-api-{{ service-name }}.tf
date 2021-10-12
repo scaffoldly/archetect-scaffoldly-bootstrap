@@ -2,7 +2,7 @@
 
 module "aws_serverless_api_{{ service_name }}" {
   source  = "scaffoldly/serverless-api/aws"
-  version = "1.0.17"
+  version = "1.0.16"
 
   repository_name    = "{{ repository-name }}"
   api_gateway_stages = module.bootstrap_aws.api_gateway_stages
