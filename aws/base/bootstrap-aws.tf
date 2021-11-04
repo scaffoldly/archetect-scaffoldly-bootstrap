@@ -13,12 +13,16 @@ module "bootstrap_aws" {
   account_id   = var.BOOTSTRAP_AWS_ACCOUNT_ID
   organization = var.BOOTSTRAP_ORGANIZATION
 
+  {% if serverless-api-subdomain != "" %}serverless_api_subdomain = "{{ serverless-api-subdomain }}"{% endif %}
+
   stages = {
     nonlive = {
       domain = "{{ nonlive-domain }}"
+      {% if nonlive-subdomain-suffix != "" %}subdomain_suffix = "{{ nonlive-subdomain-suffix }}"{% endif %}
     }
     {% if live-domain != "" %}live = {
       domain = "{{ live-domain }}"
+      {% if live-subdomain-suffix != "" %}subdomain_suffix = "{{ live-subdomain-suffix }}"{% endif %}
     }{% endif %}
   }
 }

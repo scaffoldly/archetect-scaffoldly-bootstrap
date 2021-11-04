@@ -48,8 +48,14 @@ script:
         - set:
             nonlive-domain:
               prompt: "Nonlive Domain"
+            nonlive-subdomain-suffix:
+              default: ""
             live-domain:
               prompt: "Live Domain"
+              default: ""
+            live-subdomain-suffix:
+              default: ""
+            serverless-api-domain:
               default: ""
         - rules:
             - destination:

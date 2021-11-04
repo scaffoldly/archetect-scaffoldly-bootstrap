@@ -23,6 +23,7 @@ jobs:
           - "-s base -s github -s aws -s aws-base -s addon-aws-ses -a nonlive-domain=example.dev -a live-domain=example.com"
           - "-s base -s github -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a serverless-api-repos=example-sls-rest-api"
           - "-s base -s github -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a live-domain=example.com -a serverless-api-repos=example-sls-rest-api"
+          - "-s base -s github -s aws -s aws-base -s serverless-api -a nonlive-domain=example.dev -a nonlive-subdomain-suffix=nl -a live-domain=example.com -a live-subdomain-suffix=l -a serverless-api-subdomain=api -a serverless-api-repos=example-sls-rest-api"
           # todo layering test
     steps:
       - uses: actions/checkout@v2
