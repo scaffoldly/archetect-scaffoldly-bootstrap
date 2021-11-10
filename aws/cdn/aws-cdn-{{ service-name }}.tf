@@ -2,12 +2,16 @@
 
 module "aws_cdn_{{ service_name }}" {
   source  = "scaffoldly/cdn/aws"
-  version = "1.0.3"
+  version = "1.0.5"
 
   service_slug     = "{{ service-slug }}"
   repository_name  = "{{ repository-name }}"
   logs_bucket_name = module.bootstrap_aws.logs_bucket
   cdn_stages       = module.bootstrap_aws.cdn_stages
+
+  providers = {
+    aws.dns = aws.root
+  }
 
   depends_on = [
     module.bootstrap_aws
