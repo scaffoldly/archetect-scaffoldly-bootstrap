@@ -2,7 +2,7 @@
 
 module "aws_cdn_{{ service_name }}" {
   source  = "scaffoldly/cdn/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   service_slug     = "{{ service-slug }}"
   repository_name  = "{{ repository-name }}"
