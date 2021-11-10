@@ -20,7 +20,7 @@ module "github_stage_secrets_{{ service_name }}" {
   }
 
   depends_on = [
-    module.bootstrap_aws
+    module.bootstrap_aws,
     module.aws_cdn_{{ service_name }}
   ]
 }
