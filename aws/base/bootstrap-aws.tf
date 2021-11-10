@@ -7,7 +7,7 @@ variable "BOOTSTRAP_AWS_ACCOUNT_ID" {
 
 module "bootstrap_aws" {
   source  = "scaffoldly/bootstrap/aws"
-  version = "1.0.18"
+  version = "1.0.19"
 
   root_email   = var.ROOT_EMAIL
   account_id   = var.BOOTSTRAP_AWS_ACCOUNT_ID
@@ -19,10 +19,12 @@ module "bootstrap_aws" {
     nonlive = {
       domain = "{{ nonlive-domain }}"
       {% if nonlive-subdomain-suffix != "" %}subdomain_suffix = "{{ nonlive-subdomain-suffix }}"{% endif %}
+      {% if nonlive_cdn_domains_formatted != '"[]"' %}cdn_domains = [{{ nonlive_cdn_domains_formatted }}]{% endif %}
     }
     {% if live-domain != "" %}live = {
       domain = "{{ live-domain }}"
       {% if live-subdomain-suffix != "" %}subdomain_suffix = "{{ live-subdomain-suffix }}"{% endif %}
+      {% if live_cdn_domains_formatted != '"[]"' %}cdn_domains = [{{ live_cdn_domains_formatted }}]{% endif %}
     }{% endif %}
   }
 }
