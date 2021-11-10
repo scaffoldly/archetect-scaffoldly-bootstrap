@@ -109,7 +109,7 @@ script:
                     - info: "Rendering GitHub Config for repository: {{ repository-name }}"
                     - render:
                         directory:
-                          source: "aws/serverless-api/github"
+                          source: "aws/serverless-api-github"
 
   - if:
       all-of:
@@ -149,7 +149,7 @@ script:
                     - info: "Rendering GitHub Config for repository: {{ repository-name }}"
                     - render:
                         directory:
-                          source: "aws/cdn/github"
+                          source: "aws/cdn-github"
 
   - if:
       all-of:
