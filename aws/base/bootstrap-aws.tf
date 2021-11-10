@@ -45,3 +45,7 @@ provider "aws" {
 output "bootstrap_aws_api_gateway_stages" {
   value = module.bootstrap_aws.api_gateway_stages
 }
+
+output "bootstrap_aws_cdn_stages" {
+  value = module.bootstrap_aws.cdn_stages
+}
