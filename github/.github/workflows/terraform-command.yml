@@ -27,4 +27,5 @@ jobs:
           command: "{{ '${{ github.event.inputs.command }}' }}"
           repo-token: {{ '${{ secrets.GITHUB_TOKEN }}' }}
           root-email: {{ '${{ secrets.BOOTSTRAP_ROOT_EMAIL }}' }}
-          terraform-cloud-token: {{ '${{ secrets.BOOTSTRAP_TERRAFORM_TOKEN }}' }}
+          state-provider: tfstate.dev
+          workspace: default
