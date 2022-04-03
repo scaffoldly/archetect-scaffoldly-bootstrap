@@ -4,11 +4,7 @@ terraform {
   required_version = ">= 1.0.4, < 1.1.0"
   experiments      = [module_variable_optional_attrs]
 
-  backend "remote" {
-    workspaces {
-      name = "scaffoldly-bootstrap"
-    }
-  }
+  backend "http" {}
 
   required_providers {
     aws = {
