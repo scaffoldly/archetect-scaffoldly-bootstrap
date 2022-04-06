@@ -8,6 +8,8 @@ module "aws_serverless_api_{{ service_name }}" {
   api_gateway_stages = module.bootstrap_aws.api_gateway_stages
   path               = "{{ path }}"
 
+  kms_stages = module.bootstrap_aws.kms_stages
+
   depends_on = [
     module.bootstrap_aws
   ]
