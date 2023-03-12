@@ -4,6 +4,8 @@ name: Terraform Apply
 on:
   release:
     types: [published]
+permissions:
+  contents: write
 env:
   AWS_ACCESS_KEY_ID: {{ '${{ secrets.BOOTSTRAP_AWS_ACCESS_KEY_ID }}' }}
   AWS_SECRET_ACCESS_KEY: {{ '${{ secrets.BOOTSTRAP_AWS_SECRET_ACCESS_KEY }}' }}
